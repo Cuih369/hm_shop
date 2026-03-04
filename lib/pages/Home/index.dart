@@ -15,21 +15,9 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final List<BannerModel> bannerList = [
-    BannerModel(
-      imageUrl:
-          'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/1.png',
-      id: '1',
-    ),
-    BannerModel(
-      imageUrl:
-          'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/2.png',
-      id: '2',
-    ),
-    BannerModel(
-      imageUrl:
-          'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/3.png',
-      id: '3',
-    ),
+    BannerModel(imageUrl: 'https://picsum.photos/800/600?random=1', id: '1'),
+    BannerModel(imageUrl: 'https://picsum.photos/600/800?random=2', id: '2'),
+    BannerModel(imageUrl: 'https://picsum.photos/1000/500?random=3', id: '3'),
   ];
   List<Widget> _getScrollChildern() {
     return [

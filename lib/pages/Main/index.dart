@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Center(child: Text('首页'))),
+        // appBar: AppBar(title: const Center(child: Text('首页'))),
         body: SafeArea(
           child: IndexedStack(index: _currentIndex, children: _bodyList),
         ),
