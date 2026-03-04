@@ -47,7 +47,10 @@ class _MainPageState extends State<MainPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Center(child: Text('首页'))),
-        body: SafeArea(child: _bodyList[_currentIndex]),
+        body: SafeArea(
+          child: IndexedStack(index: _currentIndex, children: _bodyList),
+        ),
+
         // 保留核心Container（提供圆角、margin、背景色）
         bottomNavigationBar: Container(
           height: 80, // 总高度
