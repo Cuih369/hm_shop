@@ -101,6 +101,13 @@ class _HmSliderState extends State<HmSlider> {
 
   @override
   Widget build(BuildContext context) {
+    print('HmSlider received bannerList: ${widget.bannerList}');
+    print('HmSlider received bannerList length: ${widget.bannerList.length}');
+    for (int i = 0; i < widget.bannerList.length; i++) {
+      print(
+        'Banner $i: id=${widget.bannerList[i].id}, imageUrl=${widget.bannerList[i].imageUrl}',
+      );
+    }
     return Stack(children: [_getSlider(), _getSeach(), _getDoit()]);
   }
 }

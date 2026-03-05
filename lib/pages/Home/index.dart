@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hm_shop/api/home.dart';
 import 'package:hm_shop/components/Home/HmCategory.dart';
 import 'package:hm_shop/components/Home/HmMoreList.dart';
 import 'package:hm_shop/components/Home/HmSlider.dart';
@@ -14,11 +15,25 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final List<BannerModel> bannerList = [
-    BannerModel(imageUrl: 'https://picsum.photos/800/600?random=1', id: '1'),
-    BannerModel(imageUrl: 'https://picsum.photos/600/800?random=2', id: '2'),
-    BannerModel(imageUrl: 'https://picsum.photos/1000/500?random=3', id: '3'),
-  ];
+  List<BannerModel> bannerList = [];
+  @override
+  void initState() {
+    super.initState();
+    _getBannerList();
+  }
+
+  Future<void> _getBannerList() async {
+    final result = await getBannerList();
+    setState(() {
+      bannerList = result;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(slivers: _getScrollChildern());
+  }
+
   List<Widget> _getScrollChildern() {
     return [
       SliverToBoxAdapter(
@@ -54,10 +69,5 @@ class _HomeViewState extends State<HomeView> {
       ),
       HmMoreList(),
     ];
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomScrollView(slivers: _getScrollChildern());
   }
 }
